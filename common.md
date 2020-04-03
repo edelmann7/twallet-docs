@@ -18,6 +18,6 @@ Test values:
       "system_session_token": "ebbee0675601bfbab8eb2d9448b71a31d652e3cc3b8a694474f48bbdcc93175"
     }
     
-exp - expiry in Unix epoch timestamp (seconds) 
-guid - profile ID 
-system_session_token - ID of authentication session
+- exp - expiry in Unix epoch timestamp (seconds) 
+- guid - profile ID 
+- system_session_token - ID of authentication session
