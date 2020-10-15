@@ -15,7 +15,7 @@
       "description": "SwaggerHub API Auto Mocking"
     },
     {
-      "url": "https://{base_url}/payments/{sep0031_app_guid}/sep0031/",
+      "url": "https://{base_url}/payments/{sep0031_app_guid}/sep0031",
       "variables": {
         "sep0031_app_guid": {
           "description": "Unique application identifier",
@@ -238,7 +238,9 @@
           }
         ],
         "responses": {
-          "200": {}
+          "200": {
+            "description": "Transaction created. Check its status with `GET /transactions`"
+          }
         },
         "security": [
           {
