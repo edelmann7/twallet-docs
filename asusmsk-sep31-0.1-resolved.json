@@ -1,0 +1,260 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "sep31 transfer",
+    "description": "## Prerequisites\n1. Get a `base_url` from Tempo. This is the base URL for all endpoints.\n2. Get a `sep0031_app_guid` from Tempo. This is the GUID of your application.\n3. Created Stellar Address and Seed\n4. Capability to issue a JWT authentication token according to [SEP-0010](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md)\n5. Provide your Stellar Address to Tempo in order to Tempo recognises and authorize your requests\n## Workflow\nProtocol description: [SEP-0031 Stellar document](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0031.md).\n1. [Create a Stellar Account for your application](https://developers.stellar.org/docs/tutorials/create-account/#create-a-keypair)\n2. Establish [trustlines](https://developers.stellar.org/docs/issuing-assets/anatomy-of-an-asset/#trustlines).\n  - In PROD - a trustline should be established with EURT token. Asset key: EURT, Asset issuer: GAP5LETOV6YIE62YAM56STDANPRDO7ZFDBGSNHJQIYGGKSMOZAHOOS2S.\n  - In STAGING - a trustline should be established with PURPLE token. Asset key: PURPLE, Asset issuer: GBT4VVTDPCNA45MNWX5G6LUTLIEENSTUHDVXO2AQHAZ24KUZUPLPGJZH.\n  \n3. Call `GET /info` endpoint to retrieve required fields for a transaction. Please consult Appendix for the full list of available methods, their names and GUIDs.\n4. Call `GET /customer` endpoint to check a sender and a recipient of a money transfer.\n5. Call `PUT /customer` endpoint for creating a customer and upload one's KYC info.\n6. Call `POST /transactions` for creating a transaction and retrieving a link onto a Payment Form.\n7. Call `GET /transaction` for checking a transaction status and missing documents.\n",
+    "contact": {
+      "url": "https://twallet.com",
+      "email": "email@gmail.com"
+    },
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/asusmsk/sep31/0.1",
+      "description": "SwaggerHub API Auto Mocking"
+    },
+    {
+      "url": "https://{base_url}/payments/{sep0031_app_guid}/sep0031/",
+      "variables": {
+        "sep0031_app_guid": {
+          "description": "Unique application identifier",
+          "default": "dabac956-ba14-49e5-bc57-5a312a1f477c"
+        },
+        "base_url": {
+          "description": "Server host",
+          "default": "backend-host"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/info": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "Get fields and fees for a sep31 transfer",
+        "operationId": "InfoGet",
+        "responses": {
+          "200": {
+            "description": "Returns required fields for a transaction (used later at `POST \\transactions`).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "receive": {
+                      "type": "object",
+                      "properties": {
+                        "EUR": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "max_amount": {
+                              "type": "number",
+                              "example": 5000
+                            },
+                            "sender_sep12_type": {
+                              "type": "string",
+                              "example": "sep31-sender"
+                            },
+                            "receiver_sep12_type": {
+                              "type": "string",
+                              "example": "sep31-receiver"
+                            },
+                            "fields": {
+                              "title": "defines a set of parameters required to make a transaction.",
+                              "type": "object",
+                              "properties": {
+                                "37a2109e-2c05-484a-bc13-ed40a61d1432": {
+                                  "required": [
+                                    "fields"
+                                  ],
+                                  "type": "object",
+                                  "properties": {
+                                    "fields": {
+                                      "title": "a list of parameters required for the particular deposit/remit method with GUID=$guid.",
+                                      "type": "object",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "690be9cf-2c43-443a-9196-6611ce63c116": {
+                                  "type": "object",
+                                  "properties": {
+                                    "fields": {
+                                      "title": "a list of parameters required for the particular deposit/remit method with GUID=$guid.",
+                                      "type": "object",
+                                      "properties": {
+                                        "fee_percent": {
+                                          "type": "number",
+                                          "example": 2.7
+                                        },
+                                        "amount": {
+                                          "type": "object",
+                                          "properties": {
+                                            "description": {
+                                              "type": "string",
+                                              "example": "amount in EUR that you plan to deposit"
+                                            }
+                                          }
+                                        },
+                                        "currency": {
+                                          "type": "object",
+                                          "properties": {
+                                            "optional": {
+                                              "type": "boolean"
+                                            },
+                                            "description": {
+                                              "type": "string",
+                                              "example": "deposit currency"
+                                            }
+                                          }
+                                        },
+                                        "billing_country": {
+                                          "type": "object",
+                                          "properties": {
+                                            "description": {
+                                              "type": "string",
+                                              "example": "Country ISO Alpha-2 code"
+                                            },
+                                            "choices": {
+                                              "type": "array",
+                                              "example": [
+                                                "GB",
+                                                "DE"
+                                              ],
+                                              "items": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "email": {
+                                          "type": "object",
+                                          "properties": {
+                                            "description": {
+                                              "type": "string",
+                                              "example": "email"
+                                            }
+                                          }
+                                        },
+                                        "phone": {
+                                          "type": "object",
+                                          "properties": {
+                                            "description": {
+                                              "type": "string",
+                                              "example": "phone number"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "transaction": {
+                                  "type": "object",
+                                  "properties": {
+                                    "deposit_method": {
+                                      "title": "a list of deposit payment methods available to the application.",
+                                      "type": "object",
+                                      "properties": {
+                                        "description": {
+                                          "type": "string",
+                                          "example": "Method of deposit to make"
+                                        },
+                                        "choices": {
+                                          "type": "array",
+                                          "example": [
+                                            "690be9cf-2c43-443a-9196-6611ce63c116"
+                                          ],
+                                          "items": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "remit_method": {
+                                      "title": "a list of remit methods available to the application.",
+                                      "type": "object",
+                                      "properties": {
+                                        "description": {
+                                          "type": "string",
+                                          "example": "Method of remit to make"
+                                        },
+                                        "choices": {
+                                          "type": "array",
+                                          "example": [
+                                            "37a2109e-2c05-484a-bc13-ed40a61d1432"
+                                          ],
+                                          "items": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/transactions": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "Create a sep31 transfer",
+        "description": "# ⚠️`under construction`⚠️\nReturns ID of the created transaction (used later at `GET \\transactions`).    \n",
+        "operationId": "TransactionsPost",
+        "parameters": [
+          {
+            "name": "test",
+            "in": "query",
+            "description": "test",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "test"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {}
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "name": "x-authorization",
+        "in": "header"
+      }
+    }
+  }
+}
