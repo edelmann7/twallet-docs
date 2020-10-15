@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)#doc-introduction -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="ROBOTS" content="NOODP">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>sep31 API documentation</title>
+<meta name="description" content="">
+
+<!-- Icons and colors -->
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="180x180" href="https://bump.sh/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bump.sh/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bump.sh/favicon-16x16.png">
+<link rel="manifest" href="https://bump.sh/site.webmanifest">
+<link rel="”mask-icon”" href="https://bump.sh/doc/favicon.svg" color="#131415">
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="sep31 API documentation">
+<meta itemprop="description" content="">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" value="summary">
+<meta name="twitter:title" content="sep31 API documentation">
+<meta name="twitter:description" content="">
+<meta name="twitter:creator" content="@bump_hq">
+<meta name="twitter:image" content="https://bump.sh/apple-touch-icon.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="sep31 API documentation">
+<meta property="og:type" content="article">
+<meta property="og:url" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://bump.sh/apple-touch-icon.png">
+
+
+  <link rel="stylesheet" media="all" href="./bump_sh_files/hub-50d8d21ef358f9c618adb3782bb872c30352986ad9f36ce00a599efc06e2e2fb.css">
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Tasm74toyYTiywF0Z+P2zDZxfAyUbjHNw0Kwd+Hlafo7KOkmcez/7X+wBywCOLj8J9PKXKymZPHvkZIcAooEMg==">
+</head>
+
+<body data-internal-url="/doc/sep31" class="layout-public public_docs public_docs-show">
+
+<style>
+  .doc-theme-default {
+    --doc-base-color: #24b668;; --doc-base-light-color: #e5f6ed;; --doc-base-dark-color: #669c7e;
+  }
+
+</style>
+
+
+  <div class="doc-container doc-theme-default" data-controller="doc-navigation">
+    <nav data-target="doc-navigation.mainMenu" class="doc-navigation">
+  <div class="doc-name">
+    <a href="">sep31</a>
+</div>
+
+
+
+  <div class="doc-navigation-items">
+    <h2>Topics</h2>
+    <ul>
+      <li data-link-to="doc-introduction" class="active"><a href="#doc-introduction">Introduction</a></li>
+    </ul>
+
+    <h2>Endpoints</h2>
+
+    <ul>
+        <li data-link-to="endpoint-info">
+          <a href="#endpoint-info">Info</a>
+        </li>
+        <li data-link-to="endpoint-transactions">
+          <a href="#endpoint-transactions">Transactions</a>
+        </li>
+      <hr>
+      <li class=""><a href="/changes">Changes history</a></li>
+    </ul>
+  </div>
+
+  <footer class="">
+  Powered by <a target="_blank" href="https://bump.sh/">Bump</a>
+</footer>
+
+</nav>
+
+
+    <main data-target="doc-navigation.scrollTrack" class="doc-content">
+      <div class="main-container">
+        <span id="top"></span>
+
+        <div class="doc-section">
+  <div class="doc-section-title">
+    <h2 data-main-menu-id="doc-introduction">sep31 transfer<a class="anchor-link" href="#doc-introduction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2><span class="anchor" id="doc-introduction"></span>
+  </div>
+
+  <div class="doc-section-copy">
+    <div class="description"><div class="markdown-content"><h4>Prerequisites <a class="anchor-link" href="#topic-prerequisites"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="anchor" id="topic-prerequisites"></span></h4>
+<ol>
+<li>Get a <code class="code-inline">base_url</code> from Tempo. This is the base URL for all endpoints.</li>
+<li>Get a <code class="code-inline">sep0031_app_guid</code> from Tempo. This is the GUID of your application.</li>
+<li>Created Stellar Address and Seed</li>
+<li>Capability to issue a JWT authentication token according to <a target="_blank" href="https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md">SEP-0010</a></li>
+<li>Provide your Stellar Address to Tempo in order to Tempo recognises and authorize your requests
+## Workflow
+Protocol description: <a target="_blank" href="https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0031.md">SEP-0031 Stellar document</a>.</li>
+<li><a target="_blank" href="https://developers.stellar.org/docs/tutorials/create-account/#create-a-keypair">Create a Stellar Account for your application</a></li>
+<li><p>Establish <a target="_blank" href="https://developers.stellar.org/docs/issuing-assets/anatomy-of-an-asset/#trustlines">trustlines</a>.</p>
+
+<ul>
+<li>In PROD - a trustline should be established with EUROT token. Asset key: EUROT, Asset issuer: GAP5LETOV6YIE62YAM56STDANPRDO7ZFDBGSNHJQIYGGKSMOZAHOOS2S.</li>
+<li>In STAGING - a trustline should be established with PURPLE token. Asset key: PURPLE, Asset issuer: GBT4VVTDPCNA45MNWX5G6LUTLIEENSTUHDVXO2AQHAZ24KUZUPLPGJZH.</li>
+</ul></li>
+<li><p>Call <code class="code-inline">GET /info</code> endpoint to retrieve required fields for a transaction. Please consult Appendix for the full list of available methods, their names and GUIDs.</p></li>
+<li><p>Call <code class="code-inline">GET /customer</code> endpoint to check a sender and a recipient of a money transfer.</p></li>
+<li><p>Call <code class="code-inline">PUT /customer</code> endpoint for creating a customer and upload one's KYC info.</p></li>
+<li><p>Call <code class="code-inline">POST /transactions</code> for creating a transaction and retrieving a link onto a Payment Form.</p></li>
+<li><p>Call <code class="code-inline">GET /transaction</code> for checking a transaction status and missing documents.</p></li>
+</ol>
+</div></div>
+    <p>      This is the documentation for version <code class="inline-code">0.1</code>
+      of the API. Last update on Oct 15, 2020.
+</p>
+  </div>
+
+  <div class="doc-section-examples">
+    <div data-controller="doc-example" class="doc-example-block dark "><div class="doc-example-block-title"><span class="title-content">Base URL</span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">https://virtserver.swaggerhub.com/asusmsk/sep31/0.1</code></div></div>
+  </div>
+</div>
+
+
+<hr>
+
+
+
+<section class="rest-endpoints">
+    <div class="doc-section-outer diff-outer-big-padding ">
+  <div class="rest-endpoint doc-section">
+    <div class="doc-section-title">
+      <h2 data-main-menu-id="endpoint-info">Info<a class="anchor-link" href="#endpoint-info"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2><span class="anchor" id="endpoint-info"></span>
+    </div>
+
+  </div>
+
+    <div class="rest-operation diff-outer doc-section ">
+  <div class="doc-section-copy">
+    <div class="rest-operation-header">
+      <h3>Get fields and fees for a sep31 transfer<a class="anchor-link" href="#operation-get-info"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3><span class="anchor" id="operation-get-info"></span>
+
+      <p></p><div class="markdown-content"></div><p></p>
+    </div>
+
+
+
+
+
+<div class="properties-list">
+  <h5>Responses</h5>
+
+  <ul>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+            <span class="dot-success">•</span>
+            200
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+            <div class="markdown-content"><p>Returns required fields for a transaction (used later at <code class="code-inline">POST \transactions</code>).</p>
+</div>
+        </div>
+      </div>
+
+
+
+
+<div class="property-children properties-list-level-1">
+  <input type="checkbox" name="property-body_attributes-get-info-200" id="property-body_attributes-get-info-200" value="1">
+  <label class="label-show" for="property-body_attributes-get-info-200">Show response</label>
+  <label class="label-hide" for="property-body_attributes-get-info-200">Hide response</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              receive
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-2">
+  <input type="checkbox" name="property-children-get-info-200-receive" id="property-children-get-info-200-receive" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.</span>EUR
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-3">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur" id="property-children-get-info-200-receive-eur" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.</span>enabled
+          </span>
+          <span class="badges">
+            <span>boolean</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.</span>max_amount
+          </span>
+          <span class="badges">
+            <span>number</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.</span>sender_sep12_type
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.</span>receiver_sep12_type
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.</span>fields
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-4">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields" id="property-children-get-info-200-receive-eur-fields" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.</span>37a2109e-2c05-484a-bc13-ed40a61d1432
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-5">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-37a2109e-2c05-484a-bc13-ed40a61d1432" id="property-children-get-info-200-receive-eur-fields-37a2109e-2c05-484a-bc13-ed40a61d1432" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-37a2109e-2c05-484a-bc13-ed40a61d1432">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-37a2109e-2c05-484a-bc13-ed40a61d1432">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.37a2109e-2c05-484a-bc13-ed40a61d1432.</span>fields
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.</span>690be9cf-2c43-443a-9196-6611ce63c116
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-5">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.</span>fields
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-6">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.</span>fee_percent
+          </span>
+          <span class="badges">
+            <span>number</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.</span>amount
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-7">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-amount" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-amount" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-amount">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-amount">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.amount.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.</span>currency
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-7">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-currency" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-currency" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-currency">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-currency">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.currency.</span>optional
+          </span>
+          <span class="badges">
+            <span>boolean</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.currency.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.</span>billing_country
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-7">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-billing_country" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-billing_country" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-billing_country">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-billing_country">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.billing_country.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.billing_country.</span>choices
+          </span>
+          <span class="badges">
+            <span>array[string]</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.</span>email
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-7">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-email" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-email" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-email">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-email">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.email.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.</span>phone
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-7">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-phone" id="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-phone" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-phone">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-690be9cf-2c43-443a-9196-6611ce63c116-fields-phone">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.690be9cf-2c43-443a-9196-6611ce63c116.fields.phone.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.</span>transaction
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-5">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-transaction" id="property-children-get-info-200-receive-eur-fields-transaction" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-transaction">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-transaction">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.transaction.</span>deposit_method
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-6">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-transaction-deposit_method" id="property-children-get-info-200-receive-eur-fields-transaction-deposit_method" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-transaction-deposit_method">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-transaction-deposit_method">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.transaction.deposit_method.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.transaction.deposit_method.</span>choices
+          </span>
+          <span class="badges">
+            <span>array[string]</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+    <li class="diff-inner has-children ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.transaction.</span>remit_method
+          </span>
+          <span class="badges">
+            <span>object</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+<div class="property-children properties-list-level-6">
+  <input type="checkbox" name="property-children-get-info-200-receive-eur-fields-transaction-remit_method" id="property-children-get-info-200-receive-eur-fields-transaction-remit_method" value="1">
+  <label class="label-show" for="property-children-get-info-200-receive-eur-fields-transaction-remit_method">Show child attributes</label>
+  <label class="label-hide" for="property-children-get-info-200-receive-eur-fields-transaction-remit_method">Hide child attributes</label>
+
+<div class="properties-list">
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.transaction.remit_method.</span>description
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              <span class="name-prefix">receive.EUR.fields.transaction.remit_method.</span>choices
+          </span>
+          <span class="badges">
+            <span>array[string]</span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+</div>
+
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <div class="doc-section-examples sticky-scrollable">
+  <div class="doc-section-examples-content">
+    <div data-controller="doc-example" class="doc-example-block dark "><div class="doc-example-block-title"><span class="title-content">Definition</span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">GET&nbsp;https://virtserver.swaggerhub.com/asusmsk/sep31/0.1/info</code></div></div>
+
+    <div data-controller="doc-example" class="doc-example-block light language-bash"><div class="doc-example-block-title"><span class="title-content">cURL example</span><span class="copy-button tooltipped-se" aria-label="Click to copy" data-target="doc-example.copyButton"><svg data-action="click-&gt;doc-example#copy" class="octicon octicon-clippy copy-icon" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg><svg class="octicon octicon-check copied-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg></span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">curl \
+ -X GET https://virtserver.swaggerhub.com/asusmsk/sep31/0.1/info \
+ -H "Content-Type: application/json"</code></div></div>
+
+
+
+    <div data-controller="doc-example" class="doc-example-block light "><div class="doc-example-block-title"><span class="title-content">Response example (200)</span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">{
+  "receive": {
+    "EUR": {
+      "enabled": true,
+      "max_amount": 5000,
+      "sender_sep12_type": "sep31-sender",
+      "receiver_sep12_type": "sep31-receiver",
+      "fields": {
+        "37a2109e-2c05-484a-bc13-ed40a61d1432": {
+          "fields": {
+          }
+        },
+        "690be9cf-2c43-443a-9196-6611ce63c116": {
+          "fields": {
+            "fee_percent": 2.7,
+            "amount": {
+              "description": "amount in EUR that you plan to deposit"
+            },
+            "currency": {
+              "optional": true,
+              "description": "deposit currency"
+            },
+            "billing_country": {
+              "description": "Country ISO Alpha-2 code",
+              "choices": [
+                "string"
+              ]
+            },
+            "email": {
+              "description": "email"
+            },
+            "phone": {
+              "description": "phone number"
+            }
+          }
+        },
+        "transaction": {
+          "deposit_method": {
+            "description": "Method of deposit to make",
+            "choices": [
+              "string"
+            ]
+          },
+          "remit_method": {
+            "description": "Method of remit to make",
+            "choices": [
+              "string"
+            ]
+          }
+        }
+      }
+    }
+  }
+}</code></div></div>
+  </div>
+</div>
+
+</div>
+
+
+  <hr>
+</div>
+
+    <div class="doc-section-outer diff-outer-big-padding ">
+  <div class="rest-endpoint doc-section">
+    <div class="doc-section-title">
+      <h2 data-main-menu-id="endpoint-transactions">Transactions<a class="anchor-link" href="#endpoint-transactions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h2><span class="anchor" id="endpoint-transactions"></span>
+    </div>
+
+  </div>
+
+    <div class="rest-operation diff-outer doc-section ">
+  <div class="doc-section-copy">
+    <div class="rest-operation-header">
+      <h3>Create a sep31 transfer<a class="anchor-link" href="#operation-post-transactions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a></h3><span class="anchor" id="operation-post-transactions"></span>
+
+      <p></p><div class="markdown-content"><h3>⚠️<code class="code-inline">under construction</code>⚠️ <a class="anchor-link" href="#topic-code-class-code-inline-under-construction-code"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><span class="anchor" id="topic-code-class-code-inline-under-construction-code"></span></h3>
+<p>Returns ID of the created transaction (used later at <code class="code-inline">GET \transactions</code>).    </p>
+</div><p></p>
+    </div>
+
+
+
+<div class="properties-list">
+  <h5>URL parameters</h5>
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+              test
+          </span>
+          <span class="badges">
+            <span>string</span>
+          </span>
+        </div>
+        <div class="content">
+            <div class="markdown-content"><p>test</p>
+</div>
+            <div class="markdown-content"><p>Values are <code class="code-inline">test</code>.</p>
+</div>
+        </div>
+      </div>
+
+
+
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="properties-list">
+  <h5>Responses</h5>
+
+  <ul>
+    <li class="diff-inner  ">
+      <div class="property">
+        <div class="attributes">
+          <span class="property-name">
+            <span class="dot-success">•</span>
+            200
+          </span>
+          <span class="badges">
+            <span></span>
+          </span>
+        </div>
+        <div class="content">
+        </div>
+      </div>
+
+
+
+
+
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <div class="doc-section-examples sticky-scrollable">
+  <div class="doc-section-examples-content">
+    <div data-controller="doc-example" class="doc-example-block dark "><div class="doc-example-block-title"><span class="title-content">Definition</span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">POST&nbsp;https://virtserver.swaggerhub.com/asusmsk/sep31/0.1/transactions</code></div></div>
+
+    <div data-controller="doc-example" class="doc-example-block light language-bash"><div class="doc-example-block-title"><span class="title-content">cURL example</span><span class="copy-button tooltipped-se" aria-label="Click to copy" data-target="doc-example.copyButton"><svg data-action="click-&gt;doc-example#copy" class="octicon octicon-clippy copy-icon" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"></path></svg><svg class="octicon octicon-check copied-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"></path></svg></span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">curl \
+ -X POST https://virtserver.swaggerhub.com/asusmsk/sep31/0.1/transactions \
+ -H "Content-Type: application/json"</code></div></div>
+
+
+
+    <div data-controller="doc-example" class="doc-example-block light "><div class="doc-example-block-title"><span class="title-content">Response example (200)</span></div><div class="doc-example-block-content" data-target="doc-example.content"><code class="code-block">No content</code></div></div>
+  </div>
+</div>
+
+</div>
+
+
+  <hr>
+</div>
+
+</section>
+
+      </div>
+    </main>
+  </div>
+
+
+  <script type="text/javascript" async="" src="./bump_sh_files/analytics.js.Без названия"></script><script type="text/javascript" async="" src="./bump_sh_files/hxcxcbgc"></script><script type="text/javascript" async="" src="./bump_sh_files/gtm.js.Без названия"></script><script type="text/javascript" async="" src="./bump_sh_files/analytics.min.js.Без названия"></script><script src="./bump_sh_files/hub-a482e83b9a8a7073eb79.js.Без названия"></script>
+
+
+
+<script>
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+analytics.load('rpx97RSTYSHdF8pRAXBho9pjwT8e6WYQ');
+analytics.page();
+analytics.identify('a6d3fb53-9ec7-425e-ac7d-f2c617481490', {
+  name: 'Igor Makarov',
+  email: 'makarovib@gmail.com',
+  createdAt: '2020-10-15 22:58:19 +0200',
+});
+}}();
+</script>
+
+<script src="./bump_sh_files/script.js.Без названия" site="RMASNIPQ" auto="false" defer=""></script>
+
+
+
+
+
+<div id="pocket-extension-root"><div class="pocket-egasyq"></div></div><div id="pocket-extension-styles"><style data-emotion="pocket"></style></div><iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important; pointer-events: none;" aria-hidden="true" tabindex="-1" title="Intercom" src="./bump_sh_files/saved_resource.html"></iframe><div class="intercom-lightweight-app" aria-live="polite"><style id="intercom-lightweight-app-style" type="text/css">
+  @keyframes intercom-lightweight-app-launcher {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes intercom-lightweight-app-gradient {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes intercom-lightweight-app-messenger {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .intercom-lightweight-app {
+    position: fixed;
+    z-index: 2147483001;
+    width: 0;
+    height: 0;
+    font-family: intercom-font, "Helvetica Neue", "Apple Color Emoji", Helvetica, Arial, sans-serif;
+  }
+
+  .intercom-lightweight-app-gradient {
+    position: fixed;
+    z-index: 2147483002;
+    width: 500px;
+    height: 500px;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at bottom right,
+      rgba(29, 39, 54, 0.16) 0%,
+      rgba(29, 39, 54, 0) 72%);
+    animation: intercom-lightweight-app-gradient 200ms ease-out;
+  }
+
+  .intercom-lightweight-app-launcher {
+    position: fixed;
+    z-index: 2147483003;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #025FD7;
+    cursor: pointer;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.06), 0 2px 32px 0 rgba(0, 0, 0, 0.16);
+    animation: intercom-lightweight-app-launcher 250ms ease;
+  }
+
+  .intercom-lightweight-app-launcher:focus {
+    outline: none;
+
+  }
+
+  .intercom-lightweight-app-launcher-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    transition: transform 100ms linear, opacity 80ms linear;
+  }
+
+  .intercom-lightweight-app-launcher-icon-open {
+
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+
+  }
+
+  .intercom-lightweight-app-launcher-icon-open svg {
+    width: 28px;
+    height: 32px;
+  }
+
+  .intercom-lightweight-app-launcher-icon-open svg path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .intercom-lightweight-app-launcher-icon-self-serve {
+
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+
+  }
+
+  .intercom-lightweight-app-launcher-icon-self-serve svg {
+    height: 56px;
+  }
+
+  .intercom-lightweight-app-launcher-icon-self-serve svg path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .intercom-lightweight-app-launcher-custom-icon-open {
+    max-height: 36px;
+    max-width: 36px;
+
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+
+  }
+
+  .intercom-lightweight-app-launcher-icon-minimize {
+
+        opacity: 0;
+        transform: rotate(-60deg) scale(0);
+
+  }
+
+  .intercom-lightweight-app-launcher-icon-minimize svg {
+    width: 16px;
+  }
+
+  .intercom-lightweight-app-launcher-icon-minimize svg path {
+    fill: rgb(255, 255, 255);
+  }
+
+  .intercom-lightweight-app-messenger {
+    position: fixed;
+    z-index: 2147483003;
+    overflow: hidden;
+    background-color: white;
+    animation: intercom-lightweight-app-messenger 250ms ease-out;
+
+        width: 376px;
+        height: calc(100% - 40px);
+        max-height: 704px;
+        min-height: 250px;
+        right: 20px;
+        bottom: 20px;
+        box-shadow: 0 5px 40px rgba(0,0,0,0.16);
+        border-radius: 8px;
+
+  }
+
+  .intercom-lightweight-app-messenger-header {
+    height: 75px;
+    background: linear-gradient(
+      135deg,
+      rgb(2, 95, 215) 0%,
+      rgb(1, 50, 114) 100%
+    );
+  }
+
+  @media print {
+    .intercom-lightweight-app {
+      display: none;
+    }
+  }
+</style></div></body></html>
